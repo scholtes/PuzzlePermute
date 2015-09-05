@@ -3,6 +3,7 @@ import java.util.*;
 public class PuzzleMain {
 
     public static void main(String[] args) {
+        boolean verbose = false;
         
         if(args.length == 0) {
             System.out.println("Usage:");
@@ -11,11 +12,20 @@ public class PuzzleMain {
             System.out.println("    -v:      verbose if flag is present");
         } else {
             //TODO: check for valid directory here
+            
             if(args.length == 2) {
-                //TOOD: check for valid flag
+                if(!args[1].equals("-v")) {
+                    System.out.println("Unrecognized flag \"" + args[1] + "\"... run with no params for help");
+                    return;
+                } else {
+                    verbose = true;
+                    System.out.println("Running verbose...");
+                }
             } else if(args.length > 2) {
-                //TODO: warn unrecongnized flags
+                System.out.println("Too many flags detected... run with no params for help");
+                return;
             }
+
         }
 
     }
