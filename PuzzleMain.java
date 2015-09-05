@@ -6,6 +6,9 @@ public class PuzzleMain {
     public static void main(String[] args) {
         boolean verbose = false;
         File imgs;
+        Puzzle puzzle;
+        String solnShort;
+        String solnLong;
         
         // Print help if no args provided
         if(args.length == 0) {
@@ -35,6 +38,17 @@ public class PuzzleMain {
                 System.out.println("Too many flags detected... run with no params for help");
                 return;
             }
+
+            // Now let's solve the puzzle
+            puzzle = new Puzzle(imgs, verbose);
+            System.out.print("Solving... ");
+            if(verbose) {System.out.println("");}
+            solnLong = puzzle.getExpandedSolution();
+            solnShort = puzzle.getCompressedSolution();
+            System.out.println("done");
+            if(verbose) {System.out.println("");}
+            System.out.println("Expanded solution: " + solnLong);
+            System.out.println("Compressed solution: " + solnShort);
 
         }
 
